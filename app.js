@@ -1,55 +1,38 @@
 let nxtBtn = document.querySelector(".next-btn");
 const gameSection = document.querySelector(".game-section");
 
+const gameVideos = ["resources/video/snake.mp4", "resources/video/pong.mp4", "resources/video/tic.mp4"];
+const gameNames = ["Snake", "Pong", "Tic-Tac-Toe"];
+const gameLines = ["Feel the hunger...", "Can you beat me?", "Beat them over and over"];
+const gameLinks = ["games/snake/index.html", "games/pong/index.html", "games/tic/index.html"];
+
 let i = 0;
 
 const clickNextHandle = ()=>{
     i += 1;
-    if(i == 0){
-        gameSection.innerHTML = `
+    
+    if(i >= gameNames.length ){
+        i = 0;
+    }else if (i < 0){
+        i = gameNames.length - 1;
+    }
+
+    gameSection.innerHTML = `
+
         <div class="games-video">
-            <video autoplay muted loop plays-inline src="resources/video/snake.mp4" class="game-video"></video>
+            <video autoplay muted loop plays-inline src=${gameVideos[i]} class="game-video"></video>
         </div>
 
         <div class="game-info">
-            <h1>Snake</h1>
-            <p>Feel the hunger...</p>
-            <a id="play-btn" href="games/snake/index.html">Play Snake</a>
+            <h1>${gameNames[i]}</h1>
+            <p>${gameLines[i]}</p>
+            <a id="play-btn" href=${gameLinks[i]}>Play ${gameNames[i]}</a>
         </div>
 
-        <div class="next-btn">Next</div>`;
-    }
+        <div class="next-btn">Next</div>
+        
+    `;
 
-    if(i == 1){
-        gameSection.innerHTML = `
-        <div class="games-video">
-            <video autoplay muted loop plays-inline src="resources/video/pong.mp4" class="game-video"></video>
-        </div>
-
-        <div class="game-info">
-            <h1>Pong</h1>
-            <p>Can you beat me?</p>
-            <a id="play-btn" href="games/pong/index.html">Play pong</a>
-        </div>
-
-        <div class="next-btn">Next</div>`;
-    }
-
-    if(i == 2){
-        gameSection.innerHTML = `
-        <div class="games-video">
-            <video autoplay muted loop plays-inline src="resources/video/tic.mp4" class="game-video"></video>
-        </div>
-
-        <div class="game-info">
-            <h1>Tic-Tac-Toe</h1>
-            <p>Beat them over and over</p>
-            <a id="play-btn" href="games/tic/index.html">Play pong</a>
-        </div>
-
-        <div class="next-btn">Next</div>`;
-        i = -1;
-    }
 
     nxtBtn = document.querySelector(".next-btn");
     nxtBtn.addEventListener('click', clickNextHandle);
