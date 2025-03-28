@@ -1,10 +1,10 @@
 let nxtBtn = document.querySelector(".next-btn");
 const gameSection = document.querySelector(".game-section");
 
-const gameVideos = ["resources/video/snake.mp4", "resources/video/pong.mp4", "resources/video/tic.mp4"];
-const gameNames = ["Snake", "Pong", "Tic-Tac-Toe"];
-const gameLines = ["Feel the hunger...", "Can you beat me?", "Beat them over and over"];
-const gameLinks = ["games/snake/index.html", "games/pong/index.html", "games/tic/index.html"];
+const gameVideos = ["resources/video/snake.mp4", "resources/video/pong.mp4", "resources/video/tic.mp4", "resources/video/flapy.mp4"];
+const gameNames = ["Snake", "Pong", "Tic-Tac-Toe", "Flapy Bird"];
+const gameLines = ["Feel the hunger...", "Can you beat me?", "Beat them over and over", "Don't fall down"];
+const gameLinks = ["games/snake/index.html", "games/pong/index.html", "games/tic/index.html", "games/flapy/index.html"];
 
 let i = 0;
 

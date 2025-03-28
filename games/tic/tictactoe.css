@@ -1,7 +1,4 @@
-:root{
-    --accent-green: rgb(177, 236, 88);
-    --accent-red: rgb(248, 94, 94);
-}
+@import url("../../header.css");
 
 body {
     margin: 0;
@@ -22,80 +19,13 @@ body {
     height: 550px;
     border: 2px solid var(--accent-red);
     margin-top: 80px;
+    box-shadow: 0 0 15px red;
 }
 
 hr {
     width: 500px;
     height: 2px;
     background-color: black;
-}
-
-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position:absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 999;
-    background-color: gray;
-    padding: 10px 30px;
-    margin-bottom: 0;
-}
-
-.head-left{
-    display: flex;
-    align-items: center;
-}
-
-.logo{
-    width: 40px;
-    height: 40px;
-    margin-right: 20px;
-}
-
-#home-btn{
-    text-decoration: none;
-    border: 3px solid black;
-    border-radius: 50px;
-    font-weight: 900;
-    color: black;
-    padding: 5px 10px;
-    background-color: var(--accent-red);
-}
-
-#home-btn:visited{
-    color: black;
-}
-
-#home-btn:hover{
-    scale: 1.1;
-}
-
-.head-right{
-    display: flex;
-    align-items: center;
-}
-
-.head-right a{
-    color: black;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1rem;
-    margin-right: 10px;
-    border: 2px solid black;
-    padding: 5px 10px;
-    border-radius: 50px;
-    background-color: var(--accent-green);
-}
-
-.head-right a:visited{
-    color: black;
-}
-
-.head-right a:hover{
-    scale: 1.1;
 }
 
 
@@ -134,17 +64,6 @@ header{
 }
 
 @media screen and (max-width: 650px) {
-    header{
-        padding: 0 10px;
-        height: 60px;
-    }
-    #home-btn{
-        display: none;
-    }
-    .head-right a{
-        font-size: 18px;
-        padding: 0 5px;
-    }
 
     hr {
         width: 450px;

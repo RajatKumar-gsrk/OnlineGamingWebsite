@@ -122,12 +122,6 @@ const checkGameOver = () => {
 function handleGameOver(){
     let overMsg = `<div class = "msg" style = "grid-area: 6/6/20/20">GAME OVER</div>`;
     gamePanel.insertAdjacentHTML('beforeend', overMsg);
-
-    sleep(250).then(() => {
-        // This will execute after the delay
-        alert("Game Over press OK to RESTART...");
-        location.reload();
-    });
     clearInterval(intervalID);
 }
 

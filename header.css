@@ -1,3 +1,8 @@
+:root{
+    --accent-green: rgb(177, 236, 88);
+    --accent-red: rgb(248, 94, 94);
+}
+
 header{
     display: flex;
     align-items: center;
