@@ -72,6 +72,8 @@ hr {
 
 @media (max-width: 1920px) {
   .gameWindow{
-        scale: 0.6;
+        scale: 0.7;
+        position: relative;
+        top: -40px;
     }
 }
