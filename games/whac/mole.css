@@ -72,3 +72,9 @@ body {
 #score{
     font-size: 40px;
 }
+
+@media (max-width: 1920px) {
+    .gameWindow{
+        scale: 0.6;
+    }
+}

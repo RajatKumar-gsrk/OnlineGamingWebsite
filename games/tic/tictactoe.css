@@ -70,3 +70,8 @@ hr {
     border-right: 3px solid black;
 }
 
+@media (max-width: 1920px) {
+  .gameWindow{
+        scale: 0.6;
+    }
+}

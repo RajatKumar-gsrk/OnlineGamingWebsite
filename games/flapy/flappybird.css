@@ -34,3 +34,9 @@ body {
     top: 40px;
     box-shadow: 0 0 15px yellowgreen;
 }
+
+@media (max-width: 1920px) {
+    #board{
+        scale: 0.6;
+    }
+}

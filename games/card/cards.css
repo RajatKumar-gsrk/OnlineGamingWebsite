@@ -49,3 +49,9 @@ body {
     width: 90px;
     margin: 2.5px;
 }
+
+@media (max-width: 1920px) {
+    #board{
+        scale: 0.6;
+    }
+}
