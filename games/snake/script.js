@@ -13,6 +13,25 @@ snakeBody.push([5,3]);
 let dx = 1, dy = 0;
 let score = 0, highScore = retrieveHighScore();
 
+//audio
+let collisionSound = new Audio("../../resources/sfx/sfx_hit.wav");
+let scoreSound = new Audio("../../resources/sfx/sfx_point.wav");
+let bgm = new Audio("../../resources/sfx/bgm_mario.mp3");
+bgm.loop = true;
+
+const resetGame = ()=>{
+gameOver = false;
+foodX = 0, foodY = 0;
+snakeBody = []
+snakeBody.push([5, 5]);
+snakeBody.push([5, 4]);
+snakeBody.push([5,3]);
+dx = 1;
+dy = 0;
+score = 0;
+highScore = retrieveHighScore();
+}
+
 function generateFood(){
     foodX = Math.floor(Math.random() * 25) + 1;
     foodY = Math.floor(Math.random() * 25) + 1;
@@ -48,6 +67,14 @@ const changeDirection = (e) => {
         e.preventDefault();
     }
 
+    if(gameOver){
+        resetGame();
+        generateFood();
+        gameLoop();
+        intervalID = setInterval(gameLoop, 150);
+        return;
+    }
+
     if(e.key === "ArrowUp" && dy != 1){
         dx = 0;
         dy = -1;
@@ -63,11 +90,11 @@ const changeDirection = (e) => {
     }
 }
 
-touchControls.forEach(key => {
-    key.addEventListener("click", ()=>changeDirection({key: key.dataset.key}));//calling chnagedirection on click with lambda
-});
-
 function moveSnake(){
+    if(bgm.paused){
+        bgm.play();
+    }
+
     for(let i = snakeBody.length - 1; i > 0; i -= 1){
         snakeBody[i] = snakeBody[i - 1];
     }
@@ -82,6 +109,7 @@ const checkFood = () => {
         snakeBody.push([snakeBody[snakeBody.length - 1][0], snakeBody[snakeBody.length - 1][1]]);
         generateFood();
         score += 5;
+        scoreSound.play();
         if(score > highScore){
             highScore = score;
             saveHighScore();
@@ -120,9 +148,11 @@ const checkGameOver = () => {
 }
 
 function handleGameOver(){
+    collisionSound.play();
     let overMsg = `<div class = "msg" style = "grid-area: 6/6/20/20">GAME OVER</div>`;
     gamePanel.insertAdjacentHTML('beforeend', overMsg);
     clearInterval(intervalID);
+    bgm.pause();
 }
 
 function sleep(ms) {

@@ -1,4 +1,5 @@
 @import url("header.css");
+@import url("info_card.css");
 
 body{
     margin: 0;
@@ -6,6 +7,7 @@ body{
     scroll-behavior: smooth;
     background-color: black;
     font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 
 .container{
@@ -33,60 +35,6 @@ body{
     object-fit: cover;
 }
 
-.game-info{
-    z-index: 1;
-    color: white;
-    position: absolute;
-    top: 80px;
-    left : 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid gray;
-    border-radius: 10px;
-    padding: 5px 10px;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.game-info h1{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-style: normal;
-    font-weight: 900;
-    font-size: 50px;
-    padding: 0;
-    margin: 0;
-    /*this is how you add gradiant text 1. you add gradient to background and then clip the background to text, then you make text transparent*/
-    background: linear-gradient(to right, #4acfee, #53f8c9, #02d79a, #6070fd, #2a46ff, #0099ff, #4acfee);
-    background-size: 200%;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: animate-gradient 2.5s linear infinite;
-}
-
-.game-info p{
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    max-width: 210px;
-}
-
-#play-btn{
-    text-decoration: none;
-    font-weight: 700;
-    padding: 5px 10px;
-    border: 2px solid var(--accent-green);
-    border-radius: 50px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-#play-btn:hover {
-    scale: 1.1;
-    cursor: pointer;
-    box-shadow: 0 0 5px white;
-}
-
 .next-btn{
     width: 100px;
     height: 100px;
@@ -94,6 +42,7 @@ body{
     color: white;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 40px;
+    font-weight: 1000;
     position:absolute;
     right: 5%;
     bottom: 5%;
@@ -104,16 +53,49 @@ body{
     border-radius: 50px;
     opacity: 0;
     transition: 0.5s;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .next-btn:hover{
+    opacity: 0.8;
+    box-shadow: 0 0 15px white;
+}
+
+
+.prev-btn{
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    font-weight: 1000;
+    position:absolute;
+    left: 5%;
+    bottom: 5%;
+    background-color: rgba(177, 236, 88, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    opacity: 0;
+    transition: 0.5s;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.prev-btn:hover{
     opacity: 1;
     box-shadow: 0 0 15px white;
 }
 
 
-@keyframes animate-gradient {
-    to{
-        background-position: 200%;
-    }
-}

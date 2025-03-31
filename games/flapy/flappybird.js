@@ -39,10 +39,10 @@ let score = 0;
 let prevScore = score;
 
 //audio
-let collisionSound = new Audio("resources/sfx/sfx_hit.wav");
-let dropSound = new Audio("resources/sfx/sfx_die.wav");
-let scoreSound = new Audio("resources/sfx/sfx_point.wav");
-let bgm = new Audio("resources/sfx/bgm_mario.mp3");
+let collisionSound = new Audio("../../resources/sfx/sfx_hit.wav");
+let dropSound = new Audio("../../resources/sfx/sfx_die.wav");
+let scoreSound = new Audio("../../resources/sfx/sfx_point.wav");
+let bgm = new Audio("../../resources/sfx/bgm_mario.mp3");
 bgm.loop = true;
 
 

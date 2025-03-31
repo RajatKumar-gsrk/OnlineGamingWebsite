@@ -1,0 +1,51 @@
+@import url("../../header.css");
+@import url("../../info_card.css");
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#gameWindow{
+    position: relative;
+    top: 80px;
+
+}
+
+#gameWindow h2{
+    color: white;
+}
+
+#board {
+    height: 532px;
+    width: 475px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: whitesmoke;
+    border: 10px solid lightgrey;
+    scale: 0.9;
+    box-shadow: 0 0 15px white;
+}
+
+.card {
+    height: 128px;
+    width: 90px;
+    margin: 2.5px;
+}

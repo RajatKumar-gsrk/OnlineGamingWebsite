@@ -40,6 +40,12 @@ let ball = {
 let player1Score = 0;
 let player2Score = 0;
 
+//audio
+let collisionSound = new Audio("../../resources/sfx/sfx_hit.wav");
+let scoreSound = new Audio("../../resources/sfx/sfx_point.wav");
+let bgm = new Audio("../../resources/sfx/bgm_mario.mp3");
+bgm.loop = true;
+
 window.onload = function() {
     board = document.getElementById("board");
     board.height = boardHeight;
@@ -99,20 +105,24 @@ function update() {
     if (detectCollision(ball, player1)) {
         if (ball.x <= player1.x + player1.width) { //left side of ball touches right side of player 1 (left paddle)
             ball.velocityX *= -1;   // flip x direction
+            collisionSound.play();
         }
     }
     else if (detectCollision(ball, player2)) {
         if (ball.x + ballWidth >= player2.x) { //right side of ball touches left side of player 2 (right paddle)
             ball.velocityX *= -1;   // flip x direction
+            collisionSound.play();
         }
     }
 
     //game over
     if (ball.x < 0) {
+        scoreSound.play();
         player2Score++;
         resetGame(1);
     }
     else if (ball.x + ballWidth > boardWidth) {
+        scoreSound.play();
         player1Score++;
         resetGame(-1);
     }
@@ -134,6 +144,9 @@ function outOfBounds(yPosition) {
 }
 
 function movePlayer(e) {
+    if(bgm.paused){
+        bgm.play();
+    }
     //player1
     if (e.code == "KeyW") {
         player1.velocityY = -3;

@@ -5,6 +5,13 @@ var playerX = "X";
 var currPlayer = playerO;
 var gameOver = false;
 
+//audio
+let collisionSound = new Audio("../../resources/sfx/sfx_hit.wav");
+let dropSound = new Audio("../../resources/sfx/sfx_die.wav");
+let scoreSound = new Audio("../../resources/sfx/sfx_point.wav");
+let bgm = new Audio("../../resources/sfx/bgm_mario.mp3");
+bgm.loop = true;
+
 window.onload = function() {
     setGame();
 }
@@ -35,6 +42,9 @@ function setGame() {
 }
 
 function setTile() {
+
+    collisionSound.play();
+
     if (gameOver) {
         return;
     }
@@ -74,7 +84,11 @@ function checkWinner() {
                 let tile = document.getElementById(r.toString() + "-" + i.toString());
                 tile.classList.add("winner");
             }
+
             gameOver = true;
+            if(bgm.paused){
+                bgm.play();
+            }
             return;
         }
     }
@@ -88,7 +102,11 @@ function checkWinner() {
                 let tile = document.getElementById(i.toString() + "-" + c.toString());                
                 tile.classList.add("winner");
             }
+
             gameOver = true;
+            if(bgm.paused){
+                bgm.play();
+            }
             return;
         }
     }
@@ -99,7 +117,11 @@ function checkWinner() {
             let tile = document.getElementById(i.toString() + "-" + i.toString());                
             tile.classList.add("winner");
         }
+
         gameOver = true;
+        if(bgm.paused){
+            bgm.play();
+        }
         return;
     }
 
@@ -117,6 +139,10 @@ function checkWinner() {
         tile = document.getElementById("2-0");                
         tile.classList.add("winner");
         gameOver = true;
+
+        if(bgm.paused){
+            bgm.play();
+        }
         return;
     }
 }

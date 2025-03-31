@@ -1,4 +1,5 @@
 @import url("../../header.css");
+@import url("../../info_card.css");
 
 body {
     margin: 0;
@@ -6,11 +7,13 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     background-color: black;
+    overflow: hidden;
+}
+
+.container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 
 .gameWindow{
@@ -20,11 +23,15 @@ body {
     border: 2px solid var(--accent-red);
     margin-top: 80px;
     box-shadow: 0 0 15px red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 hr {
     width: 500px;
-    height: 2px;
+    height: 5px;
     background-color: black;
 }
 
@@ -61,14 +68,5 @@ hr {
 
 .vertical-line {
     border-right: 3px solid black;
-}
-
-@media screen and (max-width: 650px) {
-
-    hr {
-        width: 450px;
-        height: 2px;
-        background-color: black;
-    }
 }
 
